@@ -6,6 +6,7 @@ import (
 	"github.com/darland/yandex_smart_home_server/internal/app"
 	"github.com/darland/yandex_smart_home_server/internal/ports/http"
 	"github.com/darland/yandex_smart_home_server/pkg/common/fxevent"
+	"github.com/darland/yandex_smart_home_server/pkg/common/logger"
 )
 
 func main() {
@@ -14,6 +15,7 @@ func main() {
 			fxevent.NewZeroLogger(),
 		),
 		fx.Provide(
+			logger.New,
 			// Application
 			app.New,
 		),
