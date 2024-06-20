@@ -1,16 +1,22 @@
 package main
 
+import (
+	"go.uber.org/fx"
+
+	"github.com/darland/yandex_smart_home_server/internal/app"
+	"github.com/darland/yandex_smart_home_server/internal/ports/http"
+	"github.com/darland/yandex_smart_home_server/pkg/common/fxevent"
+)
+
 func main() {
-	//log := logger.NewComponentLogger(context.Background(), "fx")
-	//fx.New(
-	//	fx.Logger(log),
-	//	fx.Provide(
-	//		// Application
-	//		context.Background,
-	//		configurator.NewConfigurator,
-	//		app.New,
-	//		middleware.NewAuthNoneMW(),
-	//	),
-	//	http.NewServer(),
-	//).Run()
+	fx.New(
+		fx.WithLogger(
+			fxevent.NewZeroLogger(),
+		),
+		fx.Provide(
+			// Application
+			app.New,
+		),
+		http.NewServer(),
+	).Run()
 }
