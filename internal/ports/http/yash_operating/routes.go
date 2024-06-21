@@ -21,6 +21,11 @@ func (hg *HandlerGroup) GetRoutes() []server.Route {
 			Handler: hg.healthCheck,
 		},
 		{
+			Method:  http.MethodGet,
+			Path:    "/api/v1.0/ping",
+			Handler: hg.healthCheck,
+		},
+		{
 			Method:      http.MethodPost,
 			Path:        "/v1.0/user/unlink",
 			Handler:     hg.unlink,

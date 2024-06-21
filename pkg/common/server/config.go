@@ -1,7 +1,7 @@
 package server
 
 type Config struct {
-	Host  string `default:""`
-	Port  string `default:"8085"`
-	Debug bool   `default:"false"`
+	Host  string `envDefault:""`
+	Port  string `envDefault:"8085"`
+	Debug bool   `envDefault:"false"`
 }

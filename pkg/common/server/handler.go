@@ -8,46 +8,31 @@ type RouteConfigurator interface {
 	GetRoutes() []Route
 }
 
-type RouteConfiguratorOut struct {
-	fx.Out
-
-	RG RouteConfigurator `group:"route_configurator"`
-}
-
 type RouteConfiguratorIn struct {
 	fx.In
 
 	RouteConfigurators []RouteConfigurator `group:"route_configurator"`
 }
 
-var RouteConfiguratorTag = fx.ResultTags(`group:"route_configurator"`)
-
-func InitRoutes(srv *HttpServer, params RouteConfiguratorIn) {
-	for _, rg := range params.RouteConfigurators {
-		srv.InitRoutes(rg)
-	}
-}
-
-func NewRouteConfigurator(rg RouteConfigurator) RouteConfiguratorOut {
-	return RouteConfiguratorOut{
-		RG: rg,
+func InitHandlerGroups(srv *HttpServer, rg RouteConfiguratorIn) {
+	for _, group := range rg.RouteConfigurators {
+		srv.InitRoutes(group)
 	}
 }
 
 func NewHandlerGroups(groups ...any) fx.Option {
-	var opts []fx.Option
+	var annotates []any
 
-	for group := range groups {
-		opts = append(
-			opts,
-			fx.Provide(
-				fx.Annotate(
-					group,
-					RouteConfiguratorTag,
-				),
+	for _, group := range groups {
+		annotates = append(
+			annotates,
+			fx.Annotate(
+				group,
+				fx.ResultTags(`group:"route_configurator"`),
+				fx.As(new(RouteConfigurator)),
 			),
 		)
 	}
 
-	return fx.Options(opts...)
+	return fx.Provide(annotates...)
 }

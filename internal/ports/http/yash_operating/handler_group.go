@@ -9,7 +9,5 @@ type HandlerGroup struct {
 }
 
 func NewHandlerGroup() *HandlerGroup {
-	h := HandlerGroup{}
-
-	return &h
+	return &HandlerGroup{}
 }

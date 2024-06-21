@@ -112,7 +112,7 @@ func InitAndRun() fx.Option {
 		fx.Provide(New),
 		fx.Invoke(
 			// Registration routes and handlers for http server
-			InitRoutes,
+			InitHandlerGroups,
 			// Run HTTP server
 			Start,
 		),
