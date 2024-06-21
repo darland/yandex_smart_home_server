@@ -15,16 +15,12 @@ func New() zerolog.Logger {
 		panic(fmt.Sprintf("failed to parse config: %v", err))
 	}
 
-	fmt.Printf("%+v\n", cfg)
-
 	logLevel, err := zerolog.ParseLevel(cfg.Level)
 	if err != nil {
 		panic(fmt.Sprintf("failed to parse log level: %v", err))
 	}
 
-	var output io.Writer
-
-	output = os.Stdout
+	var output io.Writer = os.Stdout
 
 	if cfg.Pretty {
 		output = zerolog.NewConsoleWriter()
