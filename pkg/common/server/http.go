@@ -11,6 +11,8 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/rs/zerolog"
 	"go.uber.org/fx"
+
+	"github.com/darland/yandex_smart_home_server/pkg/common/logger"
 )
 
 // Route is a http route.
@@ -34,17 +36,19 @@ func New() *HttpServer {
 	}
 
 	var (
-		e      = echo.New()
-		logger = zerolog.New(zerolog.NewConsoleWriter())
+		e   = echo.New()
+		log = logger.New()
 	)
 
 	// set request logger
 	e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
 		LogURI:    true,
 		LogStatus: true,
+		LogMethod: true,
 		LogValuesFunc: func(c echo.Context, v middleware.RequestLoggerValues) error {
-			logger.Info().
+			log.Info().
 				Str("URI", v.URI).
+				Str("method", v.Method).
 				Int("status", v.Status).
 				Msg("request")
 
@@ -62,7 +66,7 @@ func New() *HttpServer {
 	return &HttpServer{
 		Echo:   e,
 		config: &cfg,
-		log:    logger,
+		log:    log,
 	}
 }
 
