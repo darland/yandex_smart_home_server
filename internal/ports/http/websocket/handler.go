@@ -2,7 +2,7 @@ package websocket
 
 import (
 	"github.com/darland/yandex_smart_home_server/internal/service"
-	"github.com/darland/yandex_smart_home_server/pkg/common/server"
+	"github.com/webdevelop-pro/go-common/server"
 )
 
 type HandlerGroup struct {

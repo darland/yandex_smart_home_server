@@ -4,7 +4,7 @@ import (
 	"go.uber.org/fx"
 
 	yashOperating "github.com/darland/yandex_smart_home_server/internal/ports/http/yash_operating"
-	"github.com/darland/yandex_smart_home_server/pkg/common/server"
+	"github.com/webdevelop-pro/go-common/server"
 )
 
 // NewServer returns a new instance of Server

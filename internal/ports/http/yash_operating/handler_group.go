@@ -8,8 +8,8 @@ type HandlerGroup struct {
 	app service.App
 }
 
-func NewHandlerGroup() *HandlerGroup {
-	h := HandlerGroup{}
-
-	return &h
+func NewHandlerGroup(app service.App) *HandlerGroup {
+	return &HandlerGroup{
+		app: app,
+	}
 }
