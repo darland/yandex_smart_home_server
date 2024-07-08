@@ -73,6 +73,8 @@ github.com/webdevelop-pro/go-common/logger v0.0.0-20240708141119-2a2caf28b661 h1
 github.com/webdevelop-pro/go-common/logger v0.0.0-20240708141119-2a2caf28b661/go.mod h1:wF5nUlVgHl8tiTI/QeBmuAFTn9/VCj7TtfScINZr/04=
 github.com/webdevelop-pro/go-common/response v0.0.0-20240708135618-3888896d716b h1:6wNsrwHIiBsPHJc62YHoBjP2db2KhKwCHlPfm5mggYQ=
 github.com/webdevelop-pro/go-common/response v0.0.0-20240708135618-3888896d716b/go.mod h1:OClsHgTVyGEjiOdxOJ/s3fwmHlLbcFRKM+RzOzHXmpE=
+github.com/webdevelop-pro/go-common/server v0.0.0-20240708144426-2e4e59dee2f1 h1:aWD65/0cP6J7lWqJgAL3zXzG8HdjJdtqGDFLgsaZ09Y=
+github.com/webdevelop-pro/go-common/server v0.0.0-20240708144426-2e4e59dee2f1/go.mod h1:pRhmKpx4egj0cHCbGG75I6bWHUcZgpz/K0EjpkkKJFA=
 github.com/webdevelop-pro/go-common/validator v0.0.0-20240708135618-3888896d716b h1:iwcyPvz0lKMpL6cU3mw8GpAKf9FLEan8ecErKefZ0g8=
 github.com/webdevelop-pro/go-common/validator v0.0.0-20240708135618-3888896d716b/go.mod h1:4NWUTlxzijsB4jGqdkiqyFWunHU5SfViWlOPlycSPpU=
 github.com/webdevelop-pro/go-common/verser v0.0.0-20240708141119-2a2caf28b661 h1:GkQ7+h3ZBwAwioQJ649/JkJOqWdv0i20qvU+nIbJPGU=
