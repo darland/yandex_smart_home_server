@@ -2,6 +2,8 @@ module github.com/darland/yandex_smart_home_server
 
 go 1.22.2
 
+// replace github.com/webdevelop-pro/go-common/server => /home/adams/projects/webdevelop-pro/go-common/server
+
 require (
 	github.com/caarlos0/env/v11 v11.0.1
 	github.com/gorilla/websocket v1.5.2
@@ -37,7 +39,6 @@ require (
 	github.com/webdevelop-pro/go-common/configurator v0.0.0-20240708141119-2a2caf28b661 // indirect
 	github.com/webdevelop-pro/go-common/context v0.0.0-20240708141119-2a2caf28b661 // indirect
 	github.com/webdevelop-pro/go-common/response v0.0.0-20240708135618-3888896d716b // indirect
-	github.com/webdevelop-pro/go-common/server v0.0.0-20240708144426-2e4e59dee2f1 // indirect
 	github.com/webdevelop-pro/go-common/validator v0.0.0-20240708135618-3888896d716b // indirect
 	github.com/webdevelop-pro/go-common/verser v0.0.0-20240708141119-2a2caf28b661 // indirect
 	go.uber.org/dig v1.17.1 // indirect
