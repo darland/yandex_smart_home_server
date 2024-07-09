@@ -6,7 +6,6 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	"github.com/webdevelop-pro/go-common/server"
 	"github.com/webdevelop-pro/go-common/server/route"
 )
 
@@ -17,10 +16,9 @@ func (hg *HandlerGroup) GetRoutes() []route.Route {
 
 	return []route.Route{
 		{
-			Method:      http.MethodHead,
-			Path:        "/api/v1.0",
-			Handler:     hg.healthCheck,
-			Middlewares: server.DefaultMiddlewares(),
+			Method:  http.MethodHead,
+			Path:    "/api/v1.0",
+			Handler: hg.healthCheck,
 		},
 		{
 			Method:  http.MethodGet,
@@ -31,7 +29,7 @@ func (hg *HandlerGroup) GetRoutes() []route.Route {
 			Method:      http.MethodPost,
 			Path:        "/v1.0/user/unlink",
 			Handler:     hg.unlink,
-			Middlewares: server.DefaultMiddlewares(tokenValidatorMiddleware),
+			Middlewares: []echo.MiddlewareFunc{tokenValidatorMiddleware},
 		},
 		{
 			Method:      http.MethodGet,
